@@ -1,0 +1,5 @@
+res://scenes/world.tscn
+res://src/Home.gd
+res://src/hud.gd
+res://src/player.gd
+res://scenes/hud.tscn
