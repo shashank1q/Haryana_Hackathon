@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://cj2wuqpl5r3fj"]
+
+[ext_resource type="Script" path="res://src/DrawingRoom.gd" id="1_72cwb"]
+[ext_resource type="PackedScene" uid="uid://cytmtjyoctrgn" path="res://scenes/player.tscn" id="1_spk1a"]
+[ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_7yrml"]
+[ext_resource type="Script" path="res://src/Kitchen.gd" id="2_equpc"]
+[ext_resource type="Script" path="res://src/bedroom.gd" id="3_k6xgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mus7x"]
+size = Vector2(39.8378, 38.467)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kiyb"]
+size = Vector2(39.8378, 38.467)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4trh"]
+size = Vector2(39.8378, 38.467)
+
+[node name="HomeScene" type="Node"]
+
+[node name="background layer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="whiteBg" type="ColorRect" parent="background layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="platform" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -681.0
+offset_top = -169.0
+offset_right = 2833.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="DrawingRoom" type="ColorRect" parent="platform"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = -167.0
+offset_right = 456.0
+offset_bottom = -127.0
+scale = Vector2(5.16123, 4.18028)
+color = Color(0.556851, 2.16588e-07, 0.27531, 1)
+script = ExtResource("1_72cwb")
+
+[node name="Area2D" type="Area2D" parent="platform/DrawingRoom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/DrawingRoom/Area2D"]
+position = Vector2(19.994, 19.5199)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mus7x")
+
+[node name="Label" type="Label" parent="platform/DrawingRoom"]
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 26.0
+scale = Vector2(0.41, 0.41)
+theme_override_font_sizes/font_size = 22
+text = "drawing"
+
+[node name="Kitchen" type="ColorRect" parent="platform"]
+layout_mode = 0
+offset_left = 924.0
+offset_top = -169.0
+offset_right = 964.0
+offset_bottom = -129.0
+scale = Vector2(5.16123, 4.18028)
+color = Color(0.556851, 2.16588e-07, 0.27531, 1)
+script = ExtResource("2_equpc")
+
+[node name="Area2D" type="Area2D" parent="platform/Kitchen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/Kitchen/Area2D"]
+position = Vector2(19.9565, 20.5728)
+shape = SubResource("RectangleShape2D_4kiyb")
+
+[node name="kitchen" type="Label" parent="platform/Kitchen"]
+offset_right = 47.0
+offset_bottom = 26.0
+scale = Vector2(0.52, 0.52)
+theme_override_font_sizes/font_size = 22
+text = "kitchen"
+
+[node name="bedroom" type="ColorRect" parent="platform"]
+layout_mode = 0
+offset_left = 1438.0
+offset_top = -169.0
+offset_right = 1478.0
+offset_bottom = -129.0
+scale = Vector2(5.16123, 4.18028)
+color = Color(0.556851, 2.16588e-07, 0.27531, 1)
+script = ExtResource("3_k6xgl")
+
+[node name="Area2D" type="Area2D" parent="platform/bedroom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/bedroom/Area2D"]
+position = Vector2(19.9565, 19.8551)
+shape = SubResource("RectangleShape2D_r4trh")
+
+[node name="Label" type="Label" parent="platform/bedroom"]
+offset_right = 47.0
+offset_bottom = 26.0
+scale = Vector2(0.52, 0.52)
+theme_override_font_sizes/font_size = 22
+text = "bedroom"
+
+[node name="player" parent="." instance=ExtResource("1_spk1a")]
+position = Vector2(157, 415)
+
+[node name="HUD" parent="." instance=ExtResource("2_7yrml")]
+
+[connection signal="body_entered" from="platform/DrawingRoom/Area2D" to="platform/DrawingRoom" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platform/DrawingRoom/Area2D" to="platform/DrawingRoom" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="platform/Kitchen/Area2D" to="platform/Kitchen" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platform/Kitchen/Area2D" to="platform/Kitchen" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="platform/bedroom/Area2D" to="platform/bedroom" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platform/bedroom/Area2D" to="platform/bedroom" method="_on_area_2d_body_exited"]

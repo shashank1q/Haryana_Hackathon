@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b0k042bwtxxas" path="res://images/exit.png" id="4_gfmvn"]
 
 [node name="HUD" type="CanvasLayer"]
-layer = 10
+layer = 4
 script = ExtResource("1_rc2ie")
 
 [node name="moveBtn" type="Control" parent="."]
