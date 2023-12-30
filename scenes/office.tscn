@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbg5j0sulky1i"]
+[gd_scene load_steps=9 format=3 uid="uid://dbg5j0sulky1i"]
 
-[ext_resource type="Script" path="res://src/wiring.gd" id="1_2mbow"]
 [ext_resource type="PackedScene" uid="uid://cytmtjyoctrgn" path="res://scenes/player.tscn" id="1_a4fir"]
+[ext_resource type="Script" path="res://src/world.gd" id="1_sbgia"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_cycbb"]
-[ext_resource type="Script" path="res://src/assembly.gd" id="2_p0mt5"]
-[ext_resource type="Script" path="res://src/packing.gd" id="3_jcbee"]
-[ext_resource type="Script" path="res://src/Boss.gd" id="4_avvqx"]
+[ext_resource type="Script" path="res://src/door.gd" id="2_iban0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1hpc"]
 size = Vector2(273, 202)
@@ -20,6 +18,7 @@ size = Vector2(39.8814, 39.9901)
 size = Vector2(225, 199)
 
 [node name="office" type="Node"]
+script = ExtResource("1_sbgia")
 
 [node name="background layer" type="CanvasLayer" parent="."]
 layer = -2
@@ -52,7 +51,8 @@ offset_top = -215.0
 offset_right = 1095.0
 offset_bottom = -5.0
 color = Color(0, 0.568627, 0.756863, 1)
-script = ExtResource("1_2mbow")
+script = ExtResource("2_iban0")
+scene_id = "wiring"
 
 [node name="Area2D" type="Area2D" parent="platform/wiring"]
 
@@ -76,7 +76,8 @@ offset_right = 1607.0
 offset_bottom = -199.0
 scale = Vector2(6.29153, 5.93529)
 color = Color(0.541176, 0.180392, 0.878431, 1)
-script = ExtResource("2_p0mt5")
+script = ExtResource("2_iban0")
+scene_id = "assembly"
 
 [node name="Area2D" type="Area2D" parent="platform/assembly"]
 
@@ -100,7 +101,8 @@ offset_right = 2539.0
 offset_bottom = -199.0
 scale = Vector2(6.29153, 5.93529)
 color = Color(0.541176, 0.180392, 0.878431, 1)
-script = ExtResource("3_jcbee")
+script = ExtResource("2_iban0")
+scene_id = "packing"
 
 [node name="Area2D" type="Area2D" parent="platform/packing"]
 
@@ -123,7 +125,8 @@ offset_top = -202.0
 offset_right = 3347.0
 offset_bottom = -2.0
 color = Color(0, 0.462745, 0.658824, 1)
-script = ExtResource("4_avvqx")
+script = ExtResource("2_iban0")
+scene_id = "boss"
 
 [node name="Area2D" type="Area2D" parent="platform/Boss"]
 

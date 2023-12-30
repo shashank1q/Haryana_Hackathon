@@ -1,14 +1,15 @@
+Button
+ColorRect
+Control
 Node
 CollisionShape2D
 Area2D
 Label
 VisibleOnScreenEnabler2D
-ColorRect
 CanvasLayer
 AnimationPlayer
 TextureButton
 TextureRect
-Control
 HSeparator
 VSeparator
 ProgressBar

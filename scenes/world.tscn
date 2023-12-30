@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bm7flhjphje2y"]
+[gd_scene load_steps=9 format=3 uid="uid://bm7flhjphje2y"]
 
-[ext_resource type="Script" path="res://src/Home.gd" id="1_362g6"]
 [ext_resource type="PackedScene" uid="uid://cytmtjyoctrgn" path="res://scenes/player.tscn" id="1_rse5u"]
-[ext_resource type="Script" path="res://src/Office.gd" id="2_dsbx8"]
+[ext_resource type="Script" path="res://src/world.gd" id="1_t67w2"]
+[ext_resource type="Script" path="res://src/door.gd" id="2_dt2ti"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_mavut"]
-[ext_resource type="Script" path="res://src/Liquor_shop.gd" id="3_jcmv5"]
-[ext_resource type="Script" path="res://src/vegiShop.gd" id="4_y7uac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4q02"]
 size = Vector2(273, 202)
@@ -20,6 +18,7 @@ size = Vector2(39.8814, 39.9901)
 size = Vector2(225, 199)
 
 [node name="World" type="Node"]
+script = ExtResource("1_t67w2")
 
 [node name="background layer" type="CanvasLayer" parent="."]
 layer = -2
@@ -51,7 +50,8 @@ offset_left = 810.0
 offset_top = -210.0
 offset_right = 1095.0
 color = Color(0, 0.568627, 0.756863, 1)
-script = ExtResource("1_362g6")
+script = ExtResource("2_dt2ti")
+scene_id = "home"
 
 [node name="Area2D" type="Area2D" parent="platform/Home"]
 
@@ -60,6 +60,7 @@ position = Vector2(145.5, 105)
 shape = SubResource("RectangleShape2D_c4q02")
 
 [node name="Label" type="Label" parent="platform/Home"]
+layout_mode = 0
 offset_right = 47.0
 offset_bottom = 26.0
 scale = Vector2(2.94, 2.94)
@@ -74,7 +75,8 @@ offset_right = 1607.0
 offset_bottom = -199.0
 scale = Vector2(6.29153, 5.93529)
 color = Color(0.541176, 0.180392, 0.878431, 1)
-script = ExtResource("2_dsbx8")
+script = ExtResource("2_dt2ti")
+scene_id = "office"
 
 [node name="Area2D" type="Area2D" parent="platform/Office"]
 
@@ -83,6 +85,7 @@ position = Vector2(20.59, 19.5986)
 shape = SubResource("RectangleShape2D_xevur")
 
 [node name="Label" type="Label" parent="platform/Office"]
+layout_mode = 0
 offset_right = 47.0
 offset_bottom = 26.0
 theme_override_font_sizes/font_size = 12
@@ -96,7 +99,8 @@ offset_right = 2539.0
 offset_bottom = -199.0
 scale = Vector2(6.29153, 5.93529)
 color = Color(0.541176, 0.180392, 0.878431, 1)
-script = ExtResource("3_jcmv5")
+script = ExtResource("2_dt2ti")
+scene_id = "liquorshop"
 
 [node name="Area2D" type="Area2D" parent="platform/Liquor_shop"]
 
@@ -105,6 +109,7 @@ position = Vector2(20.5899, 20.4411)
 shape = SubResource("RectangleShape2D_ajtsi")
 
 [node name="Label" type="Label" parent="platform/Liquor_shop"]
+layout_mode = 0
 offset_right = 47.0
 offset_bottom = 26.0
 scale = Vector2(0.41, 0.41)
@@ -118,7 +123,8 @@ offset_top = -202.0
 offset_right = 370.0
 offset_bottom = -2.0
 color = Color(0, 0.462745, 0.658824, 1)
-script = ExtResource("4_y7uac")
+script = ExtResource("2_dt2ti")
+scene_id = "vegi"
 
 [node name="Area2D" type="Area2D" parent="platform/Vegi_shop"]
 
@@ -146,6 +152,8 @@ position = Vector2(216, 467)
 [connection signal="body_exited" from="platform/Office/Area2D" to="platform/Office" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="platform/Liquor_shop/Area2D" to="platform/Liquor_shop" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="platform/Liquor_shop/Area2D" to="platform/Liquor_shop" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="platform/Vegi_shop/Area2D" to="platform/Vegi_shop" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platform/Vegi_shop/Area2D" to="platform/Vegi_shop" method="_on_area_2d_body_exited"]
 [connection signal="left_pressed" from="HUD" to="player" method="_on_hud_left_pressed"]
 [connection signal="left_released" from="HUD" to="player" method="_on_hud_left_released"]
 [connection signal="right_pressed" from="HUD" to="player" method="_on_hud_right_pressed"]

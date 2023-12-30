@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2bqfhkawwfie"]
+[gd_scene load_steps=3 format=3 uid="uid://c2bqfhkawwfie"]
 
+[ext_resource type="Script" path="res://src/vegi_shop.gd" id="1_qqnxq"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_0u5on"]
 
 [node name="vegiShop" type="Node"]
+script = ExtResource("1_qqnxq")
 
 [node name="background layer" type="CanvasLayer" parent="."]
 layer = -2

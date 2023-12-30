@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hackathon"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,10 +20,12 @@ config/icon="res://icon.svg"
 global="*res://src/global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 trans="*res://utils/trans.tscn"
+Const="*res://utils/const.gd"
 
 [dialogue_manager]
 
 general/wrap_lines=true
+general/states=["global"]
 
 [editor_plugins]
 

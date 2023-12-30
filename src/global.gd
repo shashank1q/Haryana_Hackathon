@@ -1,20 +1,15 @@
 extends Node
 
-var curr : String = "world"
-var stack : Array = ["world"]
+var curr : String = "bedroom"
+var pos : Vector2 = Vector2.ZERO
+var stack : Array = [
+	["world", Vector2(-184, 467)], 
+	["home", Vector2(1307, 415)],
+	["bedroom", Vector2(0, 0)]
+]
+var to:String
 var entryBtnVisible : bool = false
-
-var path : Dictionary = {
-	"home" : "res://scenes/home_scene.tscn",
-	"vegi" : "res://scenes/vegi_shop.tscn",
-	"world" : "res://scenes/world.tscn",
-	"office" : "res://scenes/office.tscn",
-	"Liquor_shop" : "res://scenes/liquor_shop.tscn",
-	"drawingroom" :"res://scenes/drawing_room.tscn",
-	"kitchen" : "res://scenes/kitchen.tscn",
-	"Bedroom" : "res://scenes/bedroom.tscn",
-	"wiring": "res://scenes/wiring.tscn",
-	"assembly" : "res://scenes/assembly.tscn",
-	"packing" : "res://scenes/packing.tscn",
-	"boss" : "res://scenes/boss.tscn"
-}
+var dialogueNumber : int = 1
+var ObjectiveNumber : int = 0
+var doorOpen : Array = ["vegi"]
+var nextDialogueScene: String = "bedroom"

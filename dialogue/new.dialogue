@@ -1,3 +1,28 @@
+~ d1
+You: what a fresh morning
+Wife: hey, I forgot to tell you that there are no tomatoes.
+Wife: can you go to the market and bring it. I want it to make the lunch.
+You: Alright, I will go.
+#set global.doorOpen = ["home", "kitchen"]
+#set global.ObjectiveNumber += 1
+#set global.nextDialogue += 1
+#set global.nextDialogueScene = "kitchen"
+=> END
+
+~ vegi
+Owner: Welocome sir, What do you want today.
+=> END
+
+~ d2
+Wife: thanks, for bringing it. but you are late for the office
+You: [shake rate=20 level=10]Oh Nooo[/shake]
+You: I must hurry.
+set global.doorOpen = ["office"]
+set global.ObjectiveNumber += 1
+set global.dialogueNumber += 1
+set global.nextDialogueScene = "office"
+=> END
+
 
 ~ this_is_a_node_title
 Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
@@ -13,5 +38,4 @@ Nathan: Here are some choices.
 - Start again => this_is_a_node_title
 - End the conversation => END
 Nathan: For more information see the online documentation.
-
 => END
