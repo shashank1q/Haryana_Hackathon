@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2bqfhkawwfie"]
+[gd_scene load_steps=4 format=3 uid="uid://c2bqfhkawwfie"]
 
 [ext_resource type="Script" path="res://src/vegi_shop.gd" id="1_qqnxq"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_0u5on"]
+[ext_resource type="Texture2D" uid="uid://c0p3vfr8n0iy1" path="res://images/seller.png" id="3_mj4nt"]
 
 [node name="vegiShop" type="Node"]
 script = ExtResource("1_qqnxq")
@@ -16,35 +17,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="platform" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -821.0
-offset_top = -62.0
-offset_right = 675.0
-offset_bottom = -51.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 1)
-
 [node name="HUD" parent="." instance=ExtResource("2_0u5on")]
 hide_nav_btn = true
 
-[node name="Label" type="Label" parent="."]
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -431.0
+offset_top = -268.0
+offset_bottom = 252.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.843137, 0.843137, 0.843137, 1)
+
+[node name="panel" type="VBoxContainer" parent="background"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -107.5
-offset_top = -22.5
-offset_right = 107.5
-offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Vegitable Shop"
+
+[node name="Label" type="Label" parent="background/panel"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Sorry, you don't have enough money"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -367.0
+offset_top = -142.0
+offset_right = 145.0
+offset_bottom = 370.0
+texture = ExtResource("3_mj4nt")

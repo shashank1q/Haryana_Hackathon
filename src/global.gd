@@ -1,10 +1,14 @@
 extends Node
 
+var energy: int = 80
+var stress: int = 30
+var money : int= 50
+var joy : int = 50
 var curr : String = "bedroom"
 var pos : Vector2 = Vector2.ZERO
 var stack : Array = [
-	["world", Vector2(-184, 467)], 
-	["home", Vector2(1307, 415)],
+	["world", Vector2(523, 498)], 
+	["home", Vector2(1386, 446)],
 	["bedroom", Vector2(0, 0)]
 ]
 var to:String

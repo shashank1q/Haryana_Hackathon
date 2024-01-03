@@ -1,7 +1,5 @@
 extends Node
 
-
-
 func _pause():
 	get_tree().paused = !get_tree().paused
 
@@ -16,4 +14,3 @@ func _on_animation_player_animation_finished(anim_name):
 			$AnimationPlayer.play("end")
 	elif(global.curr == global.nextDialogueScene):
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/new.dialogue"), "d" + str(global.dialogueNumber))
-		

@@ -18,7 +18,7 @@ func _ready():
 	elif ExitBtn.visible:
 		ExitBtn.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if global.entryBtnVisible:
 		EnterBtn.visible = true
 	elif EnterBtn.visible:

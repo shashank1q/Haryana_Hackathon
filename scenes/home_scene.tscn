@@ -1,21 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj2wuqpl5r3fj"]
+[gd_scene load_steps=6 format=3 uid="uid://cj2wuqpl5r3fj"]
 
 [ext_resource type="Script" path="res://src/world.gd" id="1_qupds"]
 [ext_resource type="PackedScene" uid="uid://cytmtjyoctrgn" path="res://scenes/player.tscn" id="1_spk1a"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="2_7yrml"]
-[ext_resource type="Script" path="res://src/door.gd" id="2_n16q1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mus7x"]
-size = Vector2(39.8378, 38.467)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kiyb"]
-size = Vector2(39.8378, 38.467)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4trh"]
-size = Vector2(39.8378, 38.467)
+[ext_resource type="PackedScene" uid="uid://dhcayq10ddxqe" path="res://utils/buildings.tscn" id="3_rejrk"]
+[ext_resource type="Texture2D" uid="uid://bi1eddo7botdw" path="res://images/door.png" id="4_apwjm"]
 
 [node name="HomeScene" type="Node"]
 script = ExtResource("1_qupds")
+metadata/_edit_vertical_guides_ = [1700.0, 298.0]
+metadata/_edit_horizontal_guides_ = [593.0]
 
 [node name="background layer" type="CanvasLayer" parent="."]
 layer = -2
@@ -41,89 +35,80 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
-[node name="DrawingRoom" type="ColorRect" parent="platform"]
+[node name="drawingRoom" parent="platform" instance=ExtResource("3_rejrk")]
 layout_mode = 0
-offset_left = 416.0
+offset_left = 444.0
 offset_top = -167.0
-offset_right = 456.0
-offset_bottom = -127.0
-scale = Vector2(5.16123, 4.18028)
-color = Color(0.556851, 2.16588e-07, 0.27531, 1)
-script = ExtResource("2_n16q1")
+offset_right = 563.0
+offset_bottom = 0.0
+texture = ExtResource("4_apwjm")
 scene_id = "drawingroom"
 
-[node name="Area2D" type="Area2D" parent="platform/DrawingRoom"]
+[node name="Label" type="Label" parent="platform/drawingRoom"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Drawing Room"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/DrawingRoom/Area2D"]
-position = Vector2(19.994, 19.5199)
-shape = SubResource("RectangleShape2D_mus7x")
-
-[node name="Label" type="Label" parent="platform/DrawingRoom"]
+[node name="kitchen" parent="platform" instance=ExtResource("3_rejrk")]
 layout_mode = 0
-offset_right = 47.0
-offset_bottom = 26.0
-scale = Vector2(0.41, 0.41)
-theme_override_font_sizes/font_size = 22
-text = "drawing"
-
-[node name="Kitchen" type="ColorRect" parent="platform"]
-layout_mode = 0
-offset_left = 924.0
-offset_top = -169.0
-offset_right = 964.0
-offset_bottom = -129.0
-scale = Vector2(5.16123, 4.18028)
-color = Color(0.556851, 2.16588e-07, 0.27531, 1)
-script = ExtResource("2_n16q1")
+offset_left = 878.0
+offset_top = -167.0
+offset_right = 997.0
+offset_bottom = 0.0
+texture = ExtResource("4_apwjm")
 scene_id = "kitchen"
 
-[node name="Area2D" type="Area2D" parent="platform/Kitchen"]
+[node name="Label" type="Label" parent="platform/kitchen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Kitchen"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/Kitchen/Area2D"]
-position = Vector2(19.9565, 20.5728)
-shape = SubResource("RectangleShape2D_4kiyb")
-
-[node name="kitchen" type="Label" parent="platform/Kitchen"]
+[node name="Bedroom" parent="platform" instance=ExtResource("3_rejrk")]
 layout_mode = 0
-offset_right = 47.0
-offset_bottom = 26.0
-scale = Vector2(0.52, 0.52)
-theme_override_font_sizes/font_size = 22
-text = "kitchen"
-
-[node name="bedroom" type="ColorRect" parent="platform"]
-layout_mode = 0
-offset_left = 1438.0
-offset_top = -169.0
-offset_right = 1478.0
-offset_bottom = -129.0
-scale = Vector2(5.16123, 4.18028)
-color = Color(0.556851, 2.16588e-07, 0.27531, 1)
-script = ExtResource("2_n16q1")
+offset_left = 1322.0
+offset_top = -167.0
+offset_right = 1441.0
+offset_bottom = 0.0
+texture = ExtResource("4_apwjm")
 scene_id = "bedroom"
 
-[node name="Area2D" type="Area2D" parent="platform/bedroom"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/bedroom/Area2D"]
-position = Vector2(19.9565, 19.8551)
-shape = SubResource("RectangleShape2D_r4trh")
-
-[node name="Label" type="Label" parent="platform/bedroom"]
-layout_mode = 0
-offset_right = 47.0
-offset_bottom = 26.0
-scale = Vector2(0.52, 0.52)
-theme_override_font_sizes/font_size = 22
-text = "bedroom"
+[node name="Label" type="Label" parent="platform/Bedroom"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bedroom"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="player" parent="." instance=ExtResource("1_spk1a")]
-position = Vector2(157, 415)
+position = Vector2(401, 446)
+limit = Vector3(300, 1680, 600)
 
 [node name="HUD" parent="." instance=ExtResource("2_7yrml")]
-
-[connection signal="body_entered" from="platform/DrawingRoom/Area2D" to="platform/DrawingRoom" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="platform/DrawingRoom/Area2D" to="platform/DrawingRoom" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="platform/Kitchen/Area2D" to="platform/Kitchen" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="platform/Kitchen/Area2D" to="platform/Kitchen" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="platform/bedroom/Area2D" to="platform/bedroom" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="platform/bedroom/Area2D" to="platform/bedroom" method="_on_area_2d_body_exited"]

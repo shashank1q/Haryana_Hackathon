@@ -27,6 +27,14 @@ Const="*res://utils/const.gd"
 general/wrap_lines=true
 general/states=["global"]
 
+[display]
+
+window/size/viewport_width=1470
+window/size/viewport_height=680
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

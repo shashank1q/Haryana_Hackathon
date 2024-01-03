@@ -1,26 +1,48 @@
-[gd_scene format=3 uid="uid://bs0iykp71nca2"]
+[gd_scene load_steps=10 format=3 uid="uid://bs0iykp71nca2"]
 
-[node name="progress" type="ColorRect"]
-offset_right = 597.0
-offset_bottom = 146.0
-color = Color(0, 0.678431, 0.321569, 1)
+[ext_resource type="Script" path="res://utils/progress.gd" id="1_imqgm"]
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -329.0
-offset_top = 9.0
-offset_bottom = 43.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "250 :MONEY"
-horizontal_alignment = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b8md"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro3uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wtol"]
+bg_color = Color(0.501961, 0.172549, 0.180392, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbrts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4bly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5whk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckux1"]
+bg_color = Color(0.501961, 0.172549, 0.180392, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yjtv"]
+
+[node name="progress" type="Panel"]
+offset_right = 336.0
+offset_bottom = 149.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7b8md")
+script = ExtResource("1_imqgm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,19 +64,23 @@ text = "Enery"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(4.71, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ro3uo")
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(500, 25)
+custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5wtol")
 value = 30.0
 show_percentage = false
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ro3uo")
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fbrts")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -67,19 +93,23 @@ text = "Joy"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(4.71, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_p4bly")
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(500, 25)
+custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5wtol")
 value = 50.0
 show_percentage = false
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_p4bly")
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fbrts")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -92,13 +122,49 @@ text = "Stress"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(4.71, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g5whk")
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(500, 25)
+custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ckux1")
 value = 20.0
 show_percentage = false
 
-[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/HBoxContainer3"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(4.71, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g5whk")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "250 :MONEY"
+horizontal_alignment = 2
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7yjtv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 383.0
+offset_top = 17.0
+offset_right = 423.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.501961, 0.172549, 0.180392, 1)
+theme_override_font_sizes/font_size = 22
+text = "Objective: "
+
+[node name="objective" type="Label" parent="Label"]
+offset_left = 114.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.113725, 0.113725, 0.113725, 1)
+theme_override_font_sizes/font_size = 22
+text = "Objective: "

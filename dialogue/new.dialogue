@@ -23,6 +23,17 @@ set global.dialogueNumber += 1
 set global.nextDialogueScene = "office"
 => END
 
+~ d3
+You: Today I have to complete Packing work.
+set global.doorOpen = ["packing"]
+set global.ObjectiveNumber += 1
+set global.dialogueNumber += 1
+set global.nextDialogueScene = "office"
+=> END
+
+~ d4
+
+=> END
 
 ~ this_is_a_node_title
 Nathan: [[Hi|Hello|Howdy]], this is some dialogue.

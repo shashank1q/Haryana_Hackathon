@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyyosskooy1c"]
 
-[ext_resource type="Texture2D" uid="uid://dpgl4bn7b4ulj" path="res://images/button.png" id="1_muyl0"]
 [ext_resource type="Script" path="res://src/hud.gd" id="1_rc2ie"]
+[ext_resource type="Texture2D" uid="uid://cnabphco72b6f" path="res://images/move.png" id="2_1yj7p"]
 [ext_resource type="PackedScene" uid="uid://bs0iykp71nca2" path="res://utils/progress.tscn" id="2_xv6cu"]
-[ext_resource type="Texture2D" uid="uid://cj88jfrbfmtf2" path="res://images/enter.png" id="3_4neue"]
-[ext_resource type="Texture2D" uid="uid://b0k042bwtxxas" path="res://images/exit.png" id="4_gfmvn"]
+[ext_resource type="Texture2D" uid="uid://4p2o82kfanyh" path="res://images/enterBtn.png" id="3_vkdeh"]
+[ext_resource type="Texture2D" uid="uid://b6gvimvnjdqry" path="res://images/exitBtn.png" id="4_iheme"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 4
@@ -24,39 +24,31 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 240.0
-offset_top = -138.0
-offset_right = 351.0
-offset_bottom = -82.0
+offset_left = 223.0
+offset_top = -156.0
+offset_right = 329.0
+offset_bottom = -55.0
 grow_vertical = 0
-texture_normal = ExtResource("1_muyl0")
-texture_pressed = ExtResource("1_muyl0")
-texture_hover = ExtResource("1_muyl0")
+texture_normal = ExtResource("2_1yj7p")
+texture_pressed = ExtResource("2_1yj7p")
+texture_hover = ExtResource("2_1yj7p")
+stretch_mode = 3
 
 [node name="left" type="TextureButton" parent="moveBtn"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 76.0
-offset_top = -138.0
-offset_right = 187.0
-offset_bottom = -82.0
+offset_left = 75.0
+offset_top = -156.0
+offset_right = 176.0
+offset_bottom = -58.0
 grow_vertical = 0
-texture_normal = ExtResource("1_muyl0")
-texture_pressed = ExtResource("1_muyl0")
-texture_hover = ExtResource("1_muyl0")
+texture_normal = ExtResource("2_1yj7p")
+texture_pressed = ExtResource("2_1yj7p")
+texture_hover = ExtResource("2_1yj7p")
+stretch_mode = 3
 flip_h = true
-
-[node name="progress" parent="." instance=ExtResource("2_xv6cu")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -607.0
-offset_top = 13.0
-offset_right = -10.0
-offset_bottom = 159.0
-grow_horizontal = 0
 
 [node name="ActionBtn" type="Control" parent="."]
 layout_mode = 3
@@ -73,24 +65,28 @@ grow_vertical = 0
 [node name="enter" type="TextureButton" parent="ActionBtn"]
 visible = false
 layout_mode = 0
-offset_left = -199.0
-offset_top = -96.0
-offset_right = -119.0
-offset_bottom = -23.0
-texture_normal = ExtResource("3_4neue")
-texture_pressed = ExtResource("3_4neue")
-texture_hover = ExtResource("3_4neue")
+offset_left = -303.0
+offset_top = -118.0
+offset_right = -169.0
+offset_bottom = -2.0
+texture_normal = ExtResource("3_vkdeh")
+texture_pressed = ExtResource("3_vkdeh")
+texture_hover = ExtResource("3_vkdeh")
+stretch_mode = 3
 
 [node name="Exit" type="TextureButton" parent="ActionBtn"]
 visible = false
 layout_mode = 0
-offset_left = -88.0
-offset_top = -97.0
-offset_right = -8.0
-offset_bottom = -24.0
-texture_normal = ExtResource("4_gfmvn")
-texture_pressed = ExtResource("4_gfmvn")
-texture_hover = ExtResource("4_gfmvn")
+offset_left = -140.0
+offset_top = -118.0
+offset_right = -10.0
+offset_bottom = -1.0
+texture_normal = ExtResource("4_iheme")
+texture_pressed = ExtResource("4_iheme")
+texture_hover = ExtResource("4_iheme")
+stretch_mode = 3
+
+[node name="progress" parent="." instance=ExtResource("2_xv6cu")]
 
 [connection signal="button_down" from="moveBtn/right" to="." method="_on_right_button_down"]
 [connection signal="button_up" from="moveBtn/right" to="." method="_on_right_button_up"]

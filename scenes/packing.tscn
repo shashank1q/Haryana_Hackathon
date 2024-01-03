@@ -1,8 +1,300 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyif2ilkdlqhg"]
+[gd_scene load_steps=11 format=3 uid="uid://dyif2ilkdlqhg"]
 
+[ext_resource type="Script" path="res://src/packing.gd" id="1_2it5n"]
 [ext_resource type="PackedScene" uid="uid://dyyosskooy1c" path="res://scenes/hud.tscn" id="1_4o503"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_303n8"]
+
+[sub_resource type="Animation" id="Animation_c1xx1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamePanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(229, 700)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Select the batteries in sequence"]
+}
+
+[sub_resource type="Animation" id="Animation_vtmk7"]
+resource_name = "complete"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(230, 180), Vector2(230, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Select the batteries in sequence", "Perfect !", "Select the batteries in sequence"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_enter_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_75m3n"]
+resource_name = "enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.329877),
+"update": 0,
+"values": [Vector2(229, 700), Vector2(229, 180)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"shuffle"
+}, {
+"args": [],
+"method": &"add_btn"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wuk7j"]
+resource_name = "error"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, -2),
+"update": 0,
+"values": [Vector2(230, 180), Vector2(250, 180), Vector2(210, 180), Vector2(250, 180), Vector2(210, 180), Vector2(230, 180), Vector2(230, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.45, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.35, 0.4, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Select the batteries in sequence", "Incorrect Sequence", "Incorrect Sequence", "Select the batteries in sequence"]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_enter_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fttpt"]
+resource_name = "exit"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(230, 180), Vector2(230, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Select the batteries in sequence", "Times Up !!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_exit_room"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_04mqc"]
+resource_name = "start"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_enter_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Timer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4xxm"]
+_data = {
+"RESET": SubResource("Animation_c1xx1"),
+"complete": SubResource("Animation_vtmk7"),
+"enter": SubResource("Animation_75m3n"),
+"error": SubResource("Animation_wuk7j"),
+"exit": SubResource("Animation_fttpt"),
+"start": SubResource("Animation_04mqc")
+}
+
 [node name="Packing" type="Node"]
+script = ExtResource("1_2it5n")
 
 [node name="background layer" type="CanvasLayer" parent="."]
 layer = -2
@@ -14,35 +306,121 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="platform" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -821.0
-offset_top = -62.0
-offset_right = 675.0
-offset_bottom = -51.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 1)
-
 [node name="HUD" parent="." instance=ExtResource("1_4o503")]
 hide_nav_btn = true
 
+[node name="timerLabel" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.5
+offset_top = 20.0
+offset_right = 139.5
+offset_bottom = 65.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="timerLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Time remaining:"
+
+[node name="HSeparator" type="HSeparator" parent="timerLabel"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_303n8")
+
+[node name="time" type="Label" parent="timerLabel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "60"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_h4xxm")
+}
+
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -107.5
+offset_left = -228.5
 offset_top = -22.5
-offset_right = 107.5
+offset_right = 232.5
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Packing"
+text = "Select the batteries in sequence"
+horizontal_alignment = 1
+
+[node name="gamePanel" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = 360.0
+offset_right = 506.0
+offset_bottom = 721.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.627451, 0.521569, 1)
+
+[node name="box" type="ColorRect" parent="gamePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -103.5
+offset_right = -87.0
+offset_bottom = 110.5
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.411765, 0.258824, 0.176471, 1)
+
+[node name="boxPos" type="Marker2D" parent="gamePanel/box"]
+position = Vector2(90.9999, 106)
+
+[node name="Marker2D1" type="Marker2D" parent="gamePanel"]
+position = Vector2(115, 98)
+
+[node name="Marker2D2" type="Marker2D" parent="gamePanel"]
+position = Vector2(234, 98)
+
+[node name="Marker2D3" type="Marker2D" parent="gamePanel"]
+position = Vector2(367, 98)
+
+[node name="Marker2D4" type="Marker2D" parent="gamePanel"]
+position = Vector2(488, 98)
+
+[node name="Marker2D5" type="Marker2D" parent="gamePanel"]
+position = Vector2(601, 98)
+
+[node name="Marker2D6" type="Marker2D" parent="gamePanel"]
+position = Vector2(115, 215)
+
+[node name="Marker2D7" type="Marker2D" parent="gamePanel"]
+position = Vector2(234, 215)
+
+[node name="Marker2D8" type="Marker2D" parent="gamePanel"]
+position = Vector2(367, 215)
+
+[node name="Marker2D9" type="Marker2D" parent="gamePanel"]
+position = Vector2(488, 215)
+
+[node name="Marker2D10" type="Marker2D" parent="gamePanel"]
+position = Vector2(601, 215)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

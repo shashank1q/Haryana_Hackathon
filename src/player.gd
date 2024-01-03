@@ -3,7 +3,12 @@ extends CharacterBody2D
 const SPEED : int = 300
 var vel : int = 0
 @onready var sprite := $Sprite
+@export var limit : Vector3 = Vector3(-10000, 10000, 10000)
 
+func _ready():
+	$Camera2D.limit_left = limit.x
+	$Camera2D.limit_right = limit.y
+	$Camera2D.limit_bottom = limit.z
 
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):

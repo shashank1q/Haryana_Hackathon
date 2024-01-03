@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgpr4d7ysw3bs"]
+
+[ext_resource type="Texture2D" uid="uid://38vsrt4ac4yl" path="res://icon.svg" id="1_a4pyx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5fen"]
+
+[node name="item" type="HBoxContainer"]
+
+[node name="icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_a4pyx")
+expand_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_s5fen")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Tomatoes"
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_s5fen")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+text = "$50"
